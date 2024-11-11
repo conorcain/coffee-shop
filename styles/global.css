@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root {
+    --col-white: #ECECEC;
+    --col-l-grey: #B1C7CA;
+    --col-brown: #662900;
+    --col-orange: #E08E45;
+    --col-khaki: #F0E68C;
+    --col-p-coffee: #F0E6D2;
+    --col-d-grey: #3B3E42;
+    --col-black: #2A2929;
+    --col-black: #1f1f1f;
+
+    --col-brown-alpha15: #66290026;
+    --col-brown-alpha50: #66290080;
+    --col-brown-alpha60: #66290099;
+
+    --col-khaki-alpha50: #F0E68C80;
+
+    --font-primary: "Josefin Sans", sans-serif;
+    --font-secondary: "Anton SC", sans-serif;
+
+    --val-page-minwidth: 360px;
+    --val-base-font-size: 16px;
+    --val-base-main-padding: 0 5rem;
+    --val-main-content-gap: 2.5rem; 
+    --val-default-container-width: 80%;
+
+    --val-header-height: 15%;
+    --val-header-footer-margin: 4rem;
+    --val-nav-gap: 2rem;
+    --val-nav-text-size: 20px;
+    --val-nav-icon-font-size: 2rem;
+
+    --val-header-footer-padding: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: var(--font-primary);
+    line-height: 1.5;
+    /* min-height: 100vh; */
+    min-width: var(--val-page-minwidth);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: var(--col-black);
+    background-color: var(--col-l-grey);
+    font-size: var(--val-base-font-size);
+}
+
+header, main, footer {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+header {
+    min-width: 100vw;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.15) 25%, rgba(255, 255, 255, 0.3) 100%), var(--col-brown);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: var(--val-header-height);
+    padding: var(--val-header-footer-padding);
+    margin-bottom: var(--val-header-footer-margin);
+    user-select: none;
+    border-bottom: 2px solid var(--col-khaki);
+}
+
+h1, h2 {
+    font-family: var(--font-secondary);
+}
+
+h1 {
+    letter-spacing: 0.2rem;
+    color: var(--col-orange);
+    -webkit-text-stroke: 1px var(--col-khaki);
+    transition: all 0.1s ease-in-out;
+}
+
+h1:hover {
+    transform: scale(1.075);
+    -webkit-text-stroke-color: var(--col-white);
+}
+
+h1:active {
+    transform: scale(1.075);
+}
+
+h1[id="h1-short"] {
+    display: none;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: var(--val-nav-gap);
+}
+
+.nav-text {
+    display: inline;
+    color: var(--col-khaki);
+    font-size: var(--val-nav-text-size);
+    transition: all 0.1s ease-in-out;
+    font-family: var(--font-secondary);
+}
+
+.nav-text:hover {
+    transform: scale(1.075);
+    color: var(--col-white);
+    text-shadow: 0 0 5px var(--col-black);
+}
+.nav-icon {
+    display: none;
+}
+
+
+.icon {
+   color: var(--col-khaki);
+   font-size: var(--val-nav-icon-font-size); 
+}
+
+main {
+    /* height: 100%; */
+    padding: var(--val-base-main-padding);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+section {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+footer {
+    margin-top: var(--val-header-footer-margin); 
+    position: sticky;
+    padding: var(--val-header-footer-padding);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--col-d-grey);
+    color: var(--col-white);
+}
+a.footer-item {
+    transition: all 0.1s ease-in-out;
+}
+a.footer-item:hover {
+    color: var(--col-khaki);
+}
+
+@media screen and (max-width: 768px) {
+    h1 { font-size: 1.5rem; }
+    /* nav { gap: 2rem; } */
+    .nav-text { display: none; }
+    .nav-icon { display: inline; }
+}
+
+@media screen and (max-width: 590px) {
+    nav {gap: 1.5rem;}
+    .icon { font-size: 1.8rem; }
+}
+
+@media screen and (max-width: 509px) {
+    nav { gap: 1rem; }
+    main { padding: 0 2.5rem; }
+}
+
+@media screen and (max-width: 480px) {
+    main { padding: 0 1rem; }
+    nav { gap: 1.5rem; }
+    h1[id="h1-short"] { display: inline; }
+    h1[id="h1-long"] { display: none; }
+}
+
+@media screen and (max-width: 450px) {
+    nav { gap: 1.3rem; }
+    .icon { font-size: 1.3rem; }
+}
+
+@media screen and (max-width: 384px) {
+    main { padding: 0 0.5 rem; }
+    nav { gap: 1rem; }
+}
+
